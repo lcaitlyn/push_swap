@@ -16,10 +16,10 @@ int	ft_exit_error(char *str)
 	exit(0);
 }
 
-void	*ft_exit_and_free(char *str, char **av)
+int	ft_exit_and_free(char *str, int *arr)
 {
 	if (str)
 		ft_putstr(str);
-	ft_free_av(ac, av);
+	free (arr);
 	exit(0);
 }

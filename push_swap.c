@@ -74,13 +74,14 @@ t_list    *ft_lstdelone(t_list *first, t_list *last)
     return (first);
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
-	t_list  *first;
-    t_list  *last;
+	int	*arr;
+	int	num_of_nums;
 
 	if (argc < 2)
 		return (0);
+	num_of_nums	= ft_num_of_nums(int argc, char **argv);
 	ft_check_argv(argc, argv);
 /*
 //	ft_check_argv (;

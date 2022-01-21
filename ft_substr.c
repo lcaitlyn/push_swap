@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, int len)
+char	*ft_substr(char const *s, unsigned int start, int len, int *arr)
 {
 	char	*str;
 	char	*p;
@@ -25,13 +25,14 @@ char	*ft_substr(char const *s, unsigned int start, int len)
 		lensub = len;
 	if (start >= ft_strlen((char *)s) || len < 1)
 	{
-		str = malloc(sizeof(char));
+		str = ft_calloc(1, sizeof(char));
 		return (str);
 	}
-	str = malloc((lensub + 1) * sizeof(char));
+	str = ft_calloc((lensub + 1), sizeof(char));
 	if (!str)
-		ft_exit_error("Didn't allocate memory! (ft_substr)");
+		ft_exit_and_free("Didn't allocate memory! (ft_substr)", arr);
 	p = str;
+	str[lensub] = '\0';
 	while (lensub > 0)
 	{
 		lensub--;
