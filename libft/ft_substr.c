@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, int len, int *arr)
+char	*ft_substr(char const *s, unsigned int start, int len)
 {
 	char	*str;
 	char	*p;
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, int len, int *arr)
 	}
 	str = ft_calloc((lensub + 1), sizeof(char));
 	if (!str)
-		ft_exit_and_free("Didn't allocate memory! (ft_substr)", arr);
+		return (NULL);
 	p = str;
 	str[lensub] = '\0';
 	while (lensub > 0)

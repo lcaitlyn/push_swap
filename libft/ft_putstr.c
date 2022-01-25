@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:07:32 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/25 14:07:33 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2021/10/27 15:54:35 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2021/10/27 15:54:37 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	ft_putchar(char c)
 {
-	if (argc < 2)
-		return (0);
-	ft_init_stack(ft_check_argv(argv), ft_count_nums(argv));
-	
-	return (0);
+	write (1, &c, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+	write (1, "\n", 1);
 }

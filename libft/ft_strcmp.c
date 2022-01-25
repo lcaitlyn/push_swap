@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:07:32 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/25 14:07:33 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/01/25 12:47:30 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/01/25 12:47:32 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (argc < 2)
-		return (0);
-	ft_init_stack(ft_check_argv(argv), ft_count_nums(argv));
-	
-	return (0);
+	int i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

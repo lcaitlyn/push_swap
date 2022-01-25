@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 int    **ft_free_split(int **arr, int j)
 {
     int    i;
@@ -86,9 +86,9 @@ int    *ft_split_and_do_int(char const *s, char c)
         i++;
     }
     return (arr);
-}
+}*/
 
-/* сплит нормального человека
+// сплит нормального человека
 char	**ft_free_split(char **arr, int j)
 {
 	int	i;
@@ -100,7 +100,6 @@ char	**ft_free_split(char **arr, int j)
 		i++;
 	}
 	free(arr);
-	ft_exit_error("Didn't allocate memory! (ft_split_substr)");
 	return (NULL);
 }
 
@@ -140,9 +139,9 @@ int	ft_wrdcnt(char const *s, char c)
 	return (total);
 }
 
-int	**ft_split_and_do_int(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int		*arr;
+	char	**arr;
 	int		i;
 	int		j;
 
@@ -150,14 +149,14 @@ int	**ft_split_and_do_int(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	arr = (char **)malloc((ft_wrdcnt(s, c) + 1) * sizeof(int *));
+	arr = (char **)malloc((ft_wrdcnt(s, c) + 1) * sizeof(char *));
 	if (!arr)
-		ft_exit_error("Didn't allocate memory! (ft_split)");
+		return (NULL);
 	while (s[i] != '\0' && j < ft_wrdcnt(s, c))
 	{
 		if (s[i] != c)
 		{
-			arr[j] = ft_atoi (ft_substr(s, i, ft_wrdlen(s, i, c)));
+			arr[j] = ft_substr(s, i, ft_wrdlen(s, i, c));
 			if (!arr[j])
 				return (ft_free_split(arr, j));
 			i = i + ft_wrdlen(s, i, c) - 1;
@@ -165,9 +164,9 @@ int	**ft_split_and_do_int(char const *s, char c)
 		}
 		i++;
 	}
+	arr[j] = NULL;
 	return (arr);
 }
-*/
 
 /*
 int main (int argc, char **argv)

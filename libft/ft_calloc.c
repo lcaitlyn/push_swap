@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 15:54:35 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2021/10/27 15:54:37 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/01/20 17:53:36 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/01/20 17:53:52 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_putchar(char c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	write (1, &c, 1);
-}
+	char	*s;
 
-void	ft_putstr(char *s)
-{
-	int	i;
-
-	i = 0;
+	s = (void *)malloc((count) * size);
 	if (!s)
-		return ;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	write (1, "\n", 1);
+		return (NULL);
+	s[0] = '\0';
+	ft_bzero (s, count * size);
+	return (s);
 }

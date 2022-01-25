@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 17:54:12 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/20 17:54:31 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/01/25 12:52:30 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/01/25 12:52:31 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	*ft_bzero(void *src, size_t b)
+void	ft_init_stack(int *arr, int nums)
 {
-	char	*str;
-
-	str = (char *)src;
-	while (b > 0)
-	{
-		str[b - 1] = '\0';
-		b--;
-	}
-	return (src);
+	
 }

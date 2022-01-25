@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 14:04:08 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/20 14:04:17 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/01/20 17:54:12 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/01/20 17:54:31 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_strlen(const char *s)
+void	*ft_bzero(void *src, size_t b)
 {
-	int	i;
+	char	*str;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	str = (char *)src;
+	while (b > 0)
+	{
+		str[b - 1] = '\0';
+		b--;
+	}
+	return (src);
 }

@@ -13,7 +13,7 @@
 
 #include "push_swap.h"
 
-int	ft_action(const char *str, int i, char sign, int *arr)
+int	ft_action(const char *str, int i, char sign, int *arr, char **a_s)
 {
 	long long int	x;
 
@@ -24,30 +24,30 @@ int	ft_action(const char *str, int i, char sign, int *arr)
 		i++;
 	}
 	if (str[i] != '\0')
-		return (ft_exit_and_free ("Wrong argument! (there is not only a number)", arr));
+		return (ft_exit_and_free ("Wrong argument! (there is not only a number)", arr, a_s));
 	if (sign == '+' && (x >= -2147483648 && x <= 2147483647))
 		return (x);
 	else if (sign == '-' && (-x >= -2147483648 && -x <= 2147483647))
 		return (-x);
 	else
-		return (ft_exit_and_free ("Wrong argument! (doesn't in int range)", arr));
+		return (ft_exit_and_free ("Wrong argument! (doesn't in int range)", arr, a_s));
 }
 
-int	ft_atoi(const char *str, int *arr)
+int	ft_atoi(const char *str, int *arr, char **a_s)
 {	
 	int	i;
 
 	i = 0;
 	if (str[i] == '\0')
-		ft_exit_and_free("Wrong argument! Void arg \"\\0\"", arr);
+		ft_exit_and_free("Wrong argument! Void arg \"\\0\"", arr, a_s);
 	while (str[i] == '\n' || str[i] == '\f' || str[i] == '\v'
 		|| str[i] == '\t' || str[i] == ' ' || str[i] == '\r')
 		i++;
 	if (str[i] >= '0' && str[i] <= '9')
-		return (ft_action(str, i, '+', arr));
+		return (ft_action(str, i, '+', arr, a_s));
 	else if (str[i + 1] >= '0' && str[i + 1] <= '9' && (str[i] == '+'
 		|| str[i] == '-'))
-		return (ft_action(str, i + 1, str[i], arr));
+		return (ft_action(str, i + 1, str[i], arr, a_s));
 	else
-		return (ft_exit_and_free ("Wrong argument! (doesn't integer)", arr));
+		return (ft_exit_and_free ("Wrong argument! (doesn't integer)", arr, a_s));
 }

@@ -1,8 +1,48 @@
 #include "push_swap.h"
 
+void	ft_check_sort_arr(int *arr, int nums)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < nums)
+	{
+		j = i + 1;
+		while (j < nums)
+		{
+			if (arr[i] < arr[j])
+				j++;
+			else
+				return ;
+		}
+		i++;
+	}
+	ft_exit_error_arr(NULL, arr);
+}
+
+void	ft_check_dup(int *arr, int nums)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < nums)
+	{
+		j = i + 1;
+		while (j < nums)
+		{
+			if (arr[i] == arr[j])
+				ft_exit_error_arr("Error! Double arguments", arr);
+			j++;
+		}
+		i++;
+	}
+}
+
 void	ft_is_num(char *str)
 {
-	while (*str++)
+	while (*str)
 		if (!((*str <= '9' && *str >= '0') || *str == ' '
 			  || *str == '\t' || *str == '-' || *str == '+'))
 			ft_exit_error("Wrong argument! Doesn't integer (ft_is_num)");
@@ -10,82 +50,47 @@ void	ft_is_num(char *str)
 			str++;
 }
 
-int	ft_num_of_nums(int ac, char *av[])
+int	ft_count_nums(char *av[])
 {
 	int	i;
+	int	nums;
 
 	i = 0;
+	nums = 0;
 	while (av[++i])
 	{
 		ft_is_num(av[i]);
-		
+		nums += ft_wrdcnt(av[i], ' ');
 	}
-}
-/*
-void    ft_check_double(int ac, char **av)
-{
-    char    **av_p;
-    int    i;
-
-    i = 0;
-    while (i < ac)
-    {
-        av_p = av + 1;
-        while (*av_p)
-        {
-            if (!(ft_strcmp(*av, *av_p)))
-                ft_exit_error ("Wrong argument! Double argument");
-            av_p++;
-        }
-        i++;
-        av++;
-    }
-}
-
-void	ft_init_arr(int ac, char **av)
-{
-	int		*arr;
-
-	arr = (int)malloc((ac + 1) * sizeof (int));
-	if (!arr)
-		ft_exit_error ("Didn't allocate memory! (ft_init_arr)");
-	
-}
-*/
-/*
-void	ft_check_argv(int ac, char **av)
-{
-	int	*arr;
-
-	av++;
-	arr = ft_split_and_do_int (*av, ' ');
-	printf ("%d\n", arr[0]);
-	printf ("%d\n", arr[1]);
-	printf ("%d\n", arr[2]);
-	printf ("%d\n", arr[3]);
-	printf ("%d\n", arr[4]);
-	printf ("%d\n", arr[5]);
-}
-*/
-/* старое
-void	ft_check_argv(int ac, char **av)
-{
-	char	**av_p;
-
-	if (ac == 2)
-	{
-		av = ft_split(av[1], ' ');
-		av_p = av;
-		ac = 0;
-		while (*av_p++)
-			ac++;
-	}
+	if (nums < 2)
+		exit (0);
 	else
+		return (nums);
+}
+
+int	*ft_check_argv(char *av[])
+{
+	char	**arr_split;
+	int		i;
+	int		j;
+	int		k;
+	int 	*arr;
+
+	arr = (int *)ft_calloc(ft_count_nums(av), sizeof (int));
+	printf ("x = %d\n", ft_count_nums(av));
+	if (!arr)
+		ft_exit_error ("Couldn't allocate memory for arr");
+	i = 0;
+	k = 0;
+	while (av[++i])
 	{
-		av++;
-		ac--;
+		arr_split = ft_split(av[i], ' ');			
+		j = 0;
+		while (arr_split[j])
+			(arr)[k++] = ft_atoi(arr_split[j++], arr, arr_split);
+		ft_free_split(arr_split, j);
 	}
-	if (ac < 2 && (ft_atoi(*av, ac, av) || (**av == '0' && **av + 1 == '\0')))
-		ft_exit_and_free (NULL, av);
-	ft_init_arr(ac, av);
-}*/
+	ft_check_dup(arr, ft_count_nums(av));
+	ft_check_sort_arr(arr, ft_count_nums(av));
+	return (arr);
+}
