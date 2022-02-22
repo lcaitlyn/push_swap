@@ -26,7 +26,4 @@ void	rra(t_all *all)
 	tmp_last->next = tmp;
 	tmp_last->next->next = NULL;
 	ft_putstr("rra");
-	printf ("%d", all->a->next->next->num);
-	printf ("%d", all->a->next->num);
-	printf ("%d\n", all->a->num);
 }

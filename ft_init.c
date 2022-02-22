@@ -21,8 +21,9 @@ t_all    *ft_init_t_all(int *arr, int nums)
 		ft_exit_error_arr(E_MALLOC, arr);
     all->a = NULL;
     all->b = NULL;
-    all->min = 0;
+    all->next = 1;
     all->med = 0;
+	all->flags = 0;
     all->len_a = nums;
     all->len_b = 0;
     return (all);

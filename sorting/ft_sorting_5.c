@@ -48,10 +48,8 @@ void	ft_sorting_5(t_all *all)
 	ft_sorting_3(all);
 	while (all->len_b)
 		pa(all);
-	if (all->len_a == 5)
-		printf ("\n%d", all->a->next->next->next->next->num);
-	printf ("%d", all->a->next->next->next->num);
-	printf ("%d", all->a->next->next->num);
-	printf ("%d", all->a->next->num);
-	printf ("%d\n", all->a->num);
+	
+	// УДАЛИТЬ
+	print_lst(all->a);
+	//
 }

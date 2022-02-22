@@ -17,9 +17,6 @@ int	ft_sorting_3(t_all *all)
 	int	i;
 
 	i = 1;
-	printf ("%d", all->a->next->next->num);
-	printf ("%d", all->a->next->num);
-	printf ("%d\n", all->a->num);
 	if (all->a->next->next->num > all->a->next->num
 			&& all->a->num > all->a->next->next->num)
 		sa(all);

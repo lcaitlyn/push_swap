@@ -15,7 +15,6 @@
 void	ft_find_med(t_all *all, t_list *lst, int len)
 {
 	ft_find_max(all, lst, len);
-	ft_find_max(all, lst, len);
-	
-	all->med = (all->max - all->min) / 2 + all->min;
+	ft_find_min(all, lst, len);
+	all->med = (all->max - all->min) / 2 + all->next;
 }

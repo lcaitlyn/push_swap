@@ -36,8 +36,4 @@ void	sa(t_all *all)
 		tmp_prev_prev->next	= tmp_last;
 	}
 	ft_putstr ("sa");
-	if (all->len_a > 2)
-		printf ("%d", all->a->next->next->num);
-	printf ("%d", all->a->next->num);
-	printf ("%d\n", all->a->num);
 }

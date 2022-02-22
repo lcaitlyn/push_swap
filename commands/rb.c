@@ -27,8 +27,4 @@ void	rb(t_all *all)
 	tmp->next = NULL;
 	ft_lstadd_front(&all->b, tmp_last);
 	ft_putstr("rb");
-	if (all->len_b > 2)
-		printf ("%d", all->b->next->next->num);
-	printf ("%d", all->b->next->num);
-	printf ("%d\n", all->b->num);
 }

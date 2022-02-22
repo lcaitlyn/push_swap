@@ -26,8 +26,10 @@ typedef struct s_all
 	t_list	*a;
 	t_list	*b;
 	
-	int		max;
+	int		flags;
+	int		next;
 	int		min;
+	int		max;
 	int		med;
 	
 	int		len_a;
@@ -72,9 +74,13 @@ void	ft_find_min(t_all *all, t_list *x, int len_size);
 void	ft_find_max(t_all *all, t_list *x, int len_size);
 void	ft_find_med(t_all *all, t_list *lst, int len);
 
+// УДАЛИТЬ (ПОТОМ :D)
+void    print_lst(t_list *lst);
+
 
 void	ft_sorting(t_all *all);
 int		ft_sorting_3(t_all *all);
+int		ft_unsorting_3(t_all *all);
 void	ft_sorting_5(t_all *all);
 void	ft_sorting_main(t_all *all);
 

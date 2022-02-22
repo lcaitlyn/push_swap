@@ -27,7 +27,4 @@ void	ra(t_all *all)
 	tmp->next = NULL;
 	ft_lstadd_front(&all->a, tmp_last);
 	ft_putstr("ra");
-	printf ("%d", all->a->next->next->num);
-	printf ("%d", all->a->next->num);
-	printf ("%d\n", all->a->num);
 }

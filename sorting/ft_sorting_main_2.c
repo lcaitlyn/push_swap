@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrb.c                                              :+:      :+:    :+:   */
+/*   ft_sorting_main_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 09:34:37 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/02/22 09:34:38 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/02/22 16:05:37 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/02/22 16:05:49 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	rrb(t_all *all)
+/*
+void	ft_start_sort(t_all *all, int len_a)
 {
-	t_list	**begin;
 	t_list	*tmp_last;
-	t_list	*tmp;
 
-	if (all->b == NULL || ft_lstlast(all->b) == NULL)
-		return ;
-	tmp = all->b;
-	all->b = all->b->next;
-	tmp_last = ft_lstlast(all->b);
-	tmp_last->next = tmp;
-	tmp_last->next->next = NULL;
-	ft_putstr("rrb");
+	ft_find_med(all, all->a, all->len_a);
+	while (len_a)
+	{
+		tmp_last = ft_lstlast(all->a);
+		if (tmp_last->index <= all->med)
+			pb(all);
+		else
+			ra(all);
+		len_a--;
+	}
 }
+
+void	ft_sorting_main_2(t_all *all)
+{
+	
+}*/
