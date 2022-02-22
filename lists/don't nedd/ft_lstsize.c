@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:07:32 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/25 14:07:33 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2021/10/28 10:32:23 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2021/10/28 10:32:25 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+int	ft_lstsize(t_list *lst)
 {
-	t_all	*all;
+	int	i;
 
-	if (argc < 2)
+	i = 1;
+	if (!lst)
 		return (0);
-	all = ft_init(ft_check_argv(argv), ft_count_nums(argv));
-	ft_sorting(all);
-	ft_free_all(NULL, NULL, all);
-	return (0);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

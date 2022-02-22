@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+int	ft_free_all(char *str, int *arr, t_all *all)
+{
+	if (str)
+		ft_putstr(str);
+	if (arr)
+		free(arr);
+	ft_lstclear(all);
+	exit(0);
+}
+
 void    ft_free_sp(char **arr)
 {
 	char	**arr_p;

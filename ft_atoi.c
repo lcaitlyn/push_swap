@@ -24,13 +24,13 @@ int	ft_action(const char *str, int i, char sign, int *arr, char **a_s)
 		i++;
 	}
 	if (str[i] != '\0')
-		return (ft_exit_and_free ("Wrong argument! (there is not only a number)", arr, a_s));
+		return (ft_exit_and_free (E_NUMBER, arr, a_s));
 	if (sign == '+' && (x >= -2147483648 && x <= 2147483647))
 		return (x);
 	else if (sign == '-' && (-x >= -2147483648 && -x <= 2147483647))
 		return (-x);
 	else
-		return (ft_exit_and_free ("Wrong argument! (doesn't in int range)", arr, a_s));
+		return (ft_exit_and_free (E_RANGE, arr, a_s));
 }
 
 int	ft_atoi(const char *str, int *arr, char **a_s)
@@ -39,7 +39,7 @@ int	ft_atoi(const char *str, int *arr, char **a_s)
 
 	i = 0;
 	if (str[i] == '\0')
-		ft_exit_and_free("Wrong argument! Void arg \"\\0\"", arr, a_s);
+		ft_exit_and_free(E_VOID, arr, a_s);
 	while (str[i] == '\n' || str[i] == '\f' || str[i] == '\v'
 		|| str[i] == '\t' || str[i] == ' ' || str[i] == '\r')
 		i++;
@@ -49,5 +49,5 @@ int	ft_atoi(const char *str, int *arr, char **a_s)
 		|| str[i] == '-'))
 		return (ft_action(str, i + 1, str[i], arr, a_s));
 	else
-		return (ft_exit_and_free ("Wrong argument! (doesn't integer)", arr, a_s));
+		return (ft_exit_and_free (E_INTEGER, arr, a_s));
 }

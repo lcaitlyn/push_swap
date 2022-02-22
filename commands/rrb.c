@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:07:32 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/25 14:07:33 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/02/22 09:34:37 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/02/22 09:34:38 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	rrb(t_all *all)
 {
-	t_all	*all;
+	t_list	**begin;
+	t_list	*tmp_last;
+	t_list	*tmp;
 
-	if (argc < 2)
-		return (0);
-	all = ft_init(ft_check_argv(argv), ft_count_nums(argv));
-	ft_sorting(all);
-	ft_free_all(NULL, NULL, all);
-	return (0);
+	if (all->b == NULL || ft_lstlast(all->b) == NULL)
+		return ;
+	tmp = all->b;
+	all->b = all->b->next;
+	tmp_last = ft_lstlast(all->b);
+	tmp_last->next = tmp;
+	tmp_last->next->next = NULL;
+	ft_putstr("rrb");
+	printf ("%d", all->b->next->next->num);
+	printf ("%d", all->b->next->num);
+	printf ("%d\n", all->b->num);
 }

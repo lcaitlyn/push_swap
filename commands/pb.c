@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:07:32 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/25 14:07:33 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/02/02 16:24:29 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/02/02 16:25:09 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	pb(t_all *all)
 {
-	t_all	*all;
+	t_list	*tmp_prev;
 
-	if (argc < 2)
-		return (0);
-	all = ft_init(ft_check_argv(argv), ft_count_nums(argv));
-	ft_sorting(all);
-	ft_free_all(NULL, NULL, all);
-	return (0);
+	if (all->a == NULL || ft_lstlast(all->a) == NULL)
+		return ;
+	if (all->len_a == 1)
+	{
+		ft_lstadd_back(&all->b, ft_lstlast(all->a));
+		all->a = NULL;
+	}
+	else
+	{
+		tmp_prev = ft_find_prev(all->a);
+		ft_lstadd_back(&all->b, ft_lstlast(all->a));
+		tmp_prev->next = NULL;
+	}
+	all->len_a--;
+	all->len_b++;
+	ft_putstr("pb");
 }

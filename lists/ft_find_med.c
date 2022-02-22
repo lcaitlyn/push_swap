@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_find_med.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:07:32 by lcaitlyn          #+#    #+#             */
-/*   Updated: 2022/01/25 14:07:33 by lcaitlyn         ###   ########.fr       */
+/*   Created: 2022/02/22 10:29:33 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/02/22 10:30:04 by lcaitlyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	ft_find_med(t_all *all, t_list *lst, int len)
 {
-	t_all	*all;
-
-	if (argc < 2)
-		return (0);
-	all = ft_init(ft_check_argv(argv), ft_count_nums(argv));
-	ft_sorting(all);
-	ft_free_all(NULL, NULL, all);
-	return (0);
+	ft_find_max(all, lst, len);
+	ft_find_max(all, lst, len);
+	
+	all->med = (all->max - all->min) / 2 + all->min;
 }

@@ -33,7 +33,7 @@ void	ft_check_dup(int *arr, int nums)
 		while (j < nums)
 		{
 			if (arr[i] == arr[j])
-				ft_exit_error_arr("Error! Double arguments", arr);
+				ft_exit_error_arr(E_DOUBLE, arr);
 			j++;
 		}
 		i++;
@@ -45,7 +45,7 @@ void	ft_is_num(char *str)
 	while (*str)
 		if (!((*str <= '9' && *str >= '0') || *str == ' '
 			  || *str == '\t' || *str == '-' || *str == '+'))
-			ft_exit_error("Wrong argument! Doesn't integer (ft_is_num)");
+			ft_exit_error(E_INTEGER);
 		else
 			str++;
 }
@@ -77,9 +77,8 @@ int	*ft_check_argv(char *av[])
 	int 	*arr;
 
 	arr = (int *)ft_calloc(ft_count_nums(av), sizeof (int));
-	printf ("x = %d\n", ft_count_nums(av));
 	if (!arr)
-		ft_exit_error ("Couldn't allocate memory for arr");
+		ft_exit_error (E_MALLOC);
 	i = 0;
 	k = 0;
 	while (av[++i])
