@@ -72,7 +72,13 @@ void	ft_sort_b(t_all *all, int len_b)
 	while (len_b)
 	{
 		tmp_last = ft_lstlast(all->b);
-		if (tmp_last->index >= all->med)
+		if (tmp_last->index == all->next)
+		{
+			pa(all);
+			ft_del_flag(all, &all->a);
+			ra(all);
+		}
+		else if (tmp_last->index >= all->med)
 		{
 			ft_add_flag(&all->b, all->flags);
 			pa(all);
@@ -86,13 +92,24 @@ void	ft_sort_b(t_all *all, int len_b)
 void	ft_start_sort(t_all *all, int len_a)
 {
 	t_list	*tmp_last;
+	t_list	*tmp_prev;
 
 	ft_find_med(all, all->a, all->len_a);
 	tmp_last = ft_lstlast(all->a);
+	tmp_prev = ft_find_prev(all->a);
 	while (len_a && tmp_last->flag == all->flags)
 	{
 		if (tmp_last->index == all->next && all->a->flag == -1)
 		{
+			ft_del_flag(all, &all->a);
+			ra(all);
+		}
+		else if (tmp_prev->index == all->next && tmp_last->index == all->next + 1
+				 && all->a->flag == -1)
+		{
+			sa(all);
+			ft_del_flag(all, &all->a);
+			ra(all);
 			ft_del_flag(all, &all->a);
 			ra(all);
 		}
@@ -102,6 +119,7 @@ void	ft_start_sort(t_all *all, int len_a)
 			ra(all);
 		len_a--;
 		tmp_last = ft_lstlast(all->a);
+		tmp_prev = ft_find_prev(all->a);
 	}
 }
 
