@@ -67,16 +67,33 @@ void	ft_last_b_sort(t_all *all)
 void	ft_sort_b(t_all *all, int len_b)
 {
 	t_list	*tmp_last;
+	t_list	*tmp_prev;
 
 	ft_find_med(all, all->b, all->len_b);
-	while (len_b)
+	while (len_b > 0)
 	{
 		tmp_last = ft_lstlast(all->b);
-		if (tmp_last->index == all->next)
+		if (all->len_b > 1)
+			tmp_prev = ft_find_prev(all->b);
+		if (tmp_last->index == all->next && all->len_b > 3)
 		{
 			pa(all);
 			ft_del_flag(all, &all->a);
 			ra(all);
+			
+		}
+		else if (tmp_prev->index == all->next && tmp_last->index == all->next + 1
+				 && all->len_b > 3)
+		{
+			sb(all);
+			pa(all);
+			ft_del_flag(all, &all->a);
+			ra(all);
+			pa(all);
+			ft_del_flag(all, &all->a);
+			ra(all);
+			len_b--;
+			
 		}
 		else if (tmp_last->index >= all->med)
 		{
@@ -107,11 +124,13 @@ void	ft_start_sort(t_all *all, int len_a)
 		else if (tmp_prev->index == all->next && tmp_last->index == all->next + 1
 				 && all->a->flag == -1)
 		{
+			
 			sa(all);
 			ft_del_flag(all, &all->a);
 			ra(all);
 			ft_del_flag(all, &all->a);
 			ra(all);
+			len_a--;
 		}
 		else if (tmp_last->index <= all->med)
 			pb(all);
@@ -133,7 +152,8 @@ void	ft_sorting_main(t_all *all)
 		ft_sort_b(all, all->len_b);
 		all->flags++;
 	}
-	ft_last_b_sort(all);
+	if (all->len_b > 0)
+		ft_last_b_sort(all);
 	
 	
 /*	// УДАЛИТЬ
@@ -161,7 +181,8 @@ void	ft_sorting_main(t_all *all)
 			ft_sort_b(all, all->len_b);
 			all->flags++;
 		}
-		ft_last_b_sort(all);
+		if (all->len_b > 0)
+			ft_last_b_sort(all);
 		tmp_last = ft_lstlast(all->a);
 		all->flags = tmp_last->flag;
 	}
