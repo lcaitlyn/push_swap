@@ -31,14 +31,16 @@ void	ft_add_flag(t_list **lst, int flags)
 
 void	ft_last_b_sort(t_all *all)
 {
-	if (all->len_b == 1)
+	if (all->len_b == 0)
+		return ;
+	else if (all->len_b == 1)
 	{
 		pa(all);
 		ft_del_flag(all, &all->a);
 		ra(all);
 		return ;
 	}
-	if (all->len_b > 2)
+	else if (all->len_b > 2)
 	{
 		ft_unsorting_3(all);
 		pa(all);
@@ -89,7 +91,12 @@ void	ft_start_sort(t_all *all, int len_a)
 	tmp_last = ft_lstlast(all->a);
 	while (len_a && tmp_last->flag == all->flags)
 	{
-		if (tmp_last->index <= all->med)
+		if (tmp_last->index == all->next && all->a->flag == -1)
+		{
+			ft_del_flag(all, &all->a);
+			ra(all);
+		}
+		else if (tmp_last->index <= all->med)
 			pb(all);
 		else
 			ra(all);
@@ -110,17 +117,27 @@ void	ft_sorting_main(t_all *all)
 	}
 	ft_last_b_sort(all);
 	
+	
+/*	// УДАЛИТЬ
+	printf ("a = ");
+	print_lst(all->a);
+	printf ("b = ");
+	print_lst(all->b);
+	printf ("\n");
+	printf ("next = %d\n", all->next);*/
+	
+	
 	while (all->flags != -1)
 	{
-		// УДАЛИТЬ
+		ft_start_sort(all, all->len_a);
+		
+/*		// УДАЛИТЬ
 		printf ("a = ");
 		print_lst(all->a);
 		printf ("b = ");
 		print_lst(all->b);
-		printf ("\n");
-		//
+		printf ("\n");*/
 		
-		ft_start_sort(all, all->len_a);
 		while (all->len_b > 3)
 		{
 			ft_sort_b(all, all->len_b);
@@ -132,11 +149,11 @@ void	ft_sorting_main(t_all *all)
 	}
 	
 	
-	// УДАЛИТЬ
+/*	// УДАЛИТЬ
 	printf ("a = ");
 	print_lst(all->a);
 	printf ("b = ");
 	print_lst(all->b);
 	printf ("\n");
-	//
+	//*/
 }
