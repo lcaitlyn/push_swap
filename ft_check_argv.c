@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check_argv.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 17:51:55 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/02/24 17:59:40 by lcaitlyn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_check_sort_arr(int *arr, int nums)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < nums)
@@ -43,11 +55,17 @@ void	ft_check_dup(int *arr, int nums)
 void	ft_is_num(char *str)
 {
 	while (*str)
-		if (!((*str <= '9' && *str >= '0') || *str == ' '
-			  || *str == '\t' || *str == '-' || *str == '+'))
+	{
+		if (!((*str <= '9' && *str >= '0') || (*str == ' ') || (*str == '\t')
+				|| (*str == '-') || (*str == '+')))
+		{
 			ft_exit_error(E_INTEGER);
+		}
 		else
+		{
 			str++;
+		}
+	}
 }
 
 int	ft_count_nums(char *av[])
@@ -62,7 +80,9 @@ int	ft_count_nums(char *av[])
 		ft_is_num(av[i]);
 		nums += ft_wrdcnt(av[i], ' ');
 	}
-	if (nums < 2)
+	if (i > nums + 1)
+		return (ft_exit_error(E_VOID));
+	else if (nums < 2)
 		exit (0);
 	else
 		return (nums);
@@ -74,7 +94,7 @@ int	*ft_check_argv(char *av[])
 	int		i;
 	int		j;
 	int		k;
-	int 	*arr;
+	int		*arr;
 
 	arr = (int *)ft_calloc(ft_count_nums(av), sizeof (int));
 	if (!arr)
@@ -83,7 +103,9 @@ int	*ft_check_argv(char *av[])
 	k = 0;
 	while (av[++i])
 	{
-		arr_split = ft_split(av[i], ' ');			
+		if (!av[i][0])
+			ft_exit_and_free(E_MALLOC, arr, arr_split);
+		arr_split = ft_split(av[i], ' ');
 		j = 0;
 		while (arr_split[j])
 			(arr)[k++] = ft_atoi(arr_split[j++], arr, arr_split);

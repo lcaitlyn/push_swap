@@ -31,5 +31,6 @@ void	pb(t_all *all)
 	}
 	all->len_a--;
 	all->len_b++;
-	ft_putstr("pb");
+	if (all->flags != -2)
+		ft_putstr("pb");
 }

@@ -29,4 +29,3 @@ void	ft_find_max(t_all *all, t_list *x, int len_size)
 	}
 	all->max = max;
 }
-

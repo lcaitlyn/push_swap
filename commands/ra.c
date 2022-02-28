@@ -26,5 +26,6 @@ void	ra(t_all *all)
 		tmp = tmp->next;
 	tmp->next = NULL;
 	ft_lstadd_front(&all->a, tmp_last);
-	ft_putstr("ra");
+	if (all->flags != -2)
+		ft_putstr("ra");
 }

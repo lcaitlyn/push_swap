@@ -33,7 +33,8 @@ void	sb(t_all *all)
 		tmp_prev_prev = ft_find_prev_prev(all->b);
 		tmp_last->next = tmp_prev;
 		tmp_prev->next = NULL;
-		tmp_prev_prev->next	= tmp_last;
+		tmp_prev_prev->next = tmp_last;
 	}
-	ft_putstr ("sb");
+	if (all->flags != -2)
+		ft_putstr ("sb");
 }

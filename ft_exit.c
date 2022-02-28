@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcaitlyn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 18:01:17 by lcaitlyn          #+#    #+#             */
+/*   Updated: 2022/02/24 18:01:18 by lcaitlyn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_free_all(char *str, int *arr, t_all *all)
@@ -10,12 +22,12 @@ int	ft_free_all(char *str, int *arr, t_all *all)
 	exit(0);
 }
 
-void    ft_free_sp(char **arr)
+void	ft_free_sp(char **arr)
 {
 	char	**arr_p;
 
 	arr_p = arr;
-    while (*arr_p)
+	while (*arr_p)
 	{
 		free(*arr_p);
 		arr_p++;

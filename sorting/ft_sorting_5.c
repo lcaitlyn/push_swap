@@ -45,11 +45,7 @@ void	ft_sorting_5(t_all *all)
 		}
 		pb(all);
 	}
-	ft_sorting_3(all);
+	ft_sorting_3(all, all->a);
 	while (all->len_b)
 		pa(all);
-	
-	// УДАЛИТЬ
-	print_lst(all->a);
-	//
 }

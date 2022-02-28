@@ -31,5 +31,6 @@ void	pa(t_all *all)
 	}
 	all->len_b--;
 	all->len_a++;
-	ft_putstr("pa");
+	if (all->flags != -2)
+		ft_putstr("pa");
 }

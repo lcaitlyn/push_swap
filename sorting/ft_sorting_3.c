@@ -12,38 +12,52 @@
 
 #include "../push_swap.h"
 
-int	ft_sorting_3(t_all *all)
+/*void	ft_sorting_3(t_all *all)
 {
-	int	i;
-
-	i = 1;
 	if (all->a->next->next->num > all->a->next->num
-			&& all->a->num > all->a->next->next->num)
+		&& all->a->num > all->a->next->next->num)
 		sa(all);
 	else if (all->a->num < all->a->next->num
-				&& all->a->next->num < all->a->next->next->num)
+		&& all->a->next->num < all->a->next->next->num)
 	{
 		sa(all);
 		rra(all);
 	}
 	else if (all->a->next->num < all->a->num
-				&& all->a->next->next->num > all->a->num)
-	{
+		&& all->a->next->next->num > all->a->num)
 		ra(all);
-		i = 0;
-	}
-		
 	else if (all->a->next->next->num < all->a->num
-				&& all->a->next->num > all->a->num)
+		&& all->a->next->num > all->a->num)
 	{
 		sa(all);
 		ra(all);
 	}
 	else if (all->a->next->next->num < all->a->next->num
-				&& all->a->num < all->a->next->next->num)
-	{
+		&& all->a->num < all->a->next->next->num)
 		rra(all);
-		i = 0;
+}*/
+
+void	ft_sorting_3(t_all *all, t_list *lst)
+{
+	if (lst->next->next->num > lst->next->num
+		&& lst->num > lst->next->next->num)
+		sa(all);
+	else if (lst->num < lst->next->num
+		&& lst->next->num < lst->next->next->num)
+	{
+		sa(all);
+		rra(all);
 	}
-	return (i);
+	else if (lst->next->num < lst->num
+		&& lst->next->next->num > lst->num)
+		ra(all);
+	else if (lst->next->next->num < lst->num
+		&& lst->next->num > lst->num)
+	{
+		sa(all);
+		ra(all);
+	}
+	else if (lst->next->next->num < lst->next->num
+		&& lst->num < lst->next->next->num)
+		rra(all);
 }

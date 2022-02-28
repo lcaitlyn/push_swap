@@ -14,7 +14,6 @@
 
 void	rra(t_all *all)
 {
-	t_list	**begin;
 	t_list	*tmp_last;
 	t_list	*tmp;
 
@@ -25,5 +24,6 @@ void	rra(t_all *all)
 	tmp_last = ft_lstlast(all->a);
 	tmp_last->next = tmp;
 	tmp_last->next->next = NULL;
-	ft_putstr("rra");
+	if (all->flags != -2)
+		ft_putstr("rra");
 }
